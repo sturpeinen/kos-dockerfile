@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:3.7
 
 ARG DC_CHAIN_REV=master
 
@@ -35,6 +35,7 @@ RUN apk update \
         libpng-dev \
     && apk add --virtual .build-deps \
         binutils-dev \
+        curl \
         git \
         perl \
         python \
@@ -65,4 +66,5 @@ RUN apk update \
 
 WORKDIR /data
 ADD docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
