@@ -25,7 +25,12 @@ $ docker run -it --rm -v $(pwd):/data kos:latest make
 ```
 
 ### Uploading elf using dc-tool and Dreamcast Broadband Adapter (HIT-0400)
-Make sure that you have correct ip address for Dreamcast and that the connection to the Dreamcast works.
+Setup IP address for the Broadband Adapter and test the connection. Linux example:
+```
+$ sudo ip n add 10.0.0.42 lladdr 00:d0:f1:02:7c:1b dev enp0s31f6 nud perm
+$ ping 10.0.0.42
+```
+Upload your elf using dc-tool.
 ```
 $ cd /your/kos/project
 $ docker run -it --rm --net=host -v $(pwd):/data kos:latest "dc-tool -t 192.168.1.10 -x someproject.elf"
