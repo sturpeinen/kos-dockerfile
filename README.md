@@ -33,5 +33,5 @@ $ ping 10.0.0.42
 Upload your elf using dc-tool.
 ```
 $ cd /your/kos/project
-$ docker run -it --rm --net=host -v $(pwd):/data kos:latest "dc-tool -t 192.168.1.10 -x someproject.elf"
+$ docker run -it --rm --net=host -v $(pwd):/data kos:latest "dc-tool -t 10.0.0.42 -x someproject.elf"
 ```
