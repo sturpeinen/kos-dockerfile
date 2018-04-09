@@ -34,7 +34,7 @@ RUN apk update \
         libelf-dev \
         libpng-dev \
     && apk add --virtual .build-deps \
-        bash\
+        bash \
         binutils-dev \
         curl \
         git \
