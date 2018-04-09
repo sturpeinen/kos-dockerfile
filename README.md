@@ -13,7 +13,7 @@ $ docker build --no-cache -t kos:latest .
 Specific dc-chain and KallistiOS versions can be build by using ```DC_CHAIN_REV``` and ```KOS_REV``` build arguments. This way the slow process of building dc-chain can be skipped if there is no changes to it. If ```DC_CHAIN_REV``` is changed between builds, KallistiOS is also rebuild. If ```DC_CHAIN_REV``` stays the same but ```KOS_REV``` changes, only KallistiOS is rebuild. **Note: Ports are build with KallistiOS and latest revision is always used.**
 ```
 $ cd /path/to/kos-dockerfile
-$ docker build --build-arg DC_CHAIN_REV=818465f --build-arg KOS_REV=e92de29 -t kos:latest .
+$ docker build --build-arg DC_CHAIN_REV=818465f --build-arg KOS_REV=a84fe5e -t kos:latest .
 ```
 
 ## Cross-compiling & dc-tool

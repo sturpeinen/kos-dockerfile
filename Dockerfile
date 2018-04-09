@@ -34,6 +34,7 @@ RUN apk update \
         libelf-dev \
         libpng-dev \
     && apk add --virtual .build-deps \
+        bash\
         binutils-dev \
         curl \
         git \
@@ -52,13 +53,13 @@ RUN apk update \
     && gcc -o makeip makeip.c \
     && mkdir -p /opt/toolchains/dc \
     && git clone git://git.code.sf.net/p/cadcdev/kallistios /opt/toolchains/dc/kos \
+    && git clone --recursive git://git.code.sf.net/p/cadcdev/kos-ports /opt/toolchains/dc/kos-ports \
     && cd /opt/toolchains/dc/kos \
     && git checkout ${KOS_REV} \
     && cp /opt/toolchains/dc/kos/doc/environ.sh.sample /opt/toolchains/dc/kos/environ.sh \
     && . "/opt/toolchains/dc/kos/environ.sh" \
     && cd /opt/toolchains/dc/kos/ \
     && make \
-    && git clone --recursive git://git.code.sf.net/p/cadcdev/kos-ports /opt/toolchains/dc/kos-ports \
     && sh "/opt/toolchains/dc/kos-ports/utils/build-all.sh" \
     && ln -s /opt/toolchains/dc/kos/utils/scramble/scramble /usr/local/bin/scramble \
     && apk del .build-deps \
